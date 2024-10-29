@@ -71,15 +71,14 @@ func ReadItems(filename string) ([]Item, error) {
         return []Item{}, err
     }
 
-    for i, _ := range items {
+    for i := range items {
         items[i].position = i + 1
     }
 
     return items, nil
 }
 
-// ByPri implements sort.Interface for []Item based on
-// the Priority & position field.
+// ByPri implements sort.Interface for []Item based on the Priority & position field.
 type ByPri []Item
 
 func (s ByPri) Len() int      { return len(s) }

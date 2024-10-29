@@ -1,6 +1,3 @@
-/*
-Copyright © 2024 NAME HERE <EMAIL ADDRESS>
-*/
 package cmd
 
 import (
@@ -21,9 +18,7 @@ var RootCmd = &cobra.Command{
 	Use:   "tri",
 	Short: "Tri is a todo application",
 	Long: `Tri will help you get more done in less time.
-It's designed to be as simple as possible to help you accomplish your goals.`,
-	// Uncomment the following line if your bare application has an action associated with it
-	//	Run: func(cmd *cobra.Command, args []string) { },
+		   It's designed to be as simple as possible to help you accomplish your goals.`,
 }
 
 // Execute adds all child commands to the root command and sets flags appropriately.
@@ -38,16 +33,13 @@ func Execute() {
 
 func init() {
     cobra.OnInitialize(initConfig)
-	// Here you will define your flags and configuration settings
-	// Cobra supports Persistent Flags which if defined here will be global for your application
 
 	home, err := homedir.Dir()
 	if err != nil {
 		log.Println("Unable to detect home directory. Please set data file using --datafile.")
 	}
 
-	RootCmd.PersistentFlags().StringVar(&dataFile,
-		"datafile",
+	RootCmd.PersistentFlags().StringVar(&dataFile, "datafile",
 		home+string(os.PathSeparator)+".tridos.json",
 		"data file to store todos")
 
@@ -74,4 +66,3 @@ func initConfig() {
 		fmt.Println("Using config file:", viper.ConfigFileUsed())
 	}
 }
-

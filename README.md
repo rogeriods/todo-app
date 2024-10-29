@@ -1,10 +1,24 @@
-# Commands
+# (CLI) TODO App
+
+Command line interface TODO app between users and a computer via text-based.
+
+## Getting Started
 
 ```bash
-$ ./app -h or --help
+$ git clone https://github.com/rogeriods/todo-app
 
-$ ./app add "text" --datafile $HOME/.next.json
+$ cd todo-app
 
-$ ./app list --datafile $HOME/.next.json
+$ go mod tidy
+```
+
+## Help Commands
+
+```bash
+$ go run main.go -h or --help
+
+$ go run main.go add "text" --datafile $HOME/.next.json
+
+$ go run main.go list --datafile $HOME/.next.json
 
 ```
